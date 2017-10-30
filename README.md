@@ -1,0 +1,2 @@
+# BetterDocs
+Documentation for everything.
