@@ -11,7 +11,7 @@
                         {% for e in links %}
                         {% assign s = e.url | slice: 0 %}
                         <li class="pushy-link">
-                            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}}">{{e.name}}</a>
+                            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}">{{e.name}}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -44,7 +44,7 @@
             {% for e in links %}
             {% if forloop.index > len %}
             {% assign s = e.url | slice: 0 %}
-            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}}">
+            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}">
                 <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
             </a>
             {% endif %}
