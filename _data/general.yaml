@@ -1,0 +1,14 @@
+header:
+    links:
+        - name: Documentation
+          url: /documentation
+        - name: Themes
+          url: /themes
+        - name: Plugins
+          url: /plugins
+        - name: Store
+          url: /store
+        - name: Submit
+          url: /submit
+        - name: Donate
+          url: https://paypal.me/Chaotiic
