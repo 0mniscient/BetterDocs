@@ -1,0 +1,60 @@
+---
+layout: theme
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include document-head.html %}
+    </head>
+    <body class="body-page" style="visibility: visible;">
+        <canvas id="bg-canvas" width="1438" height="949"></canvas>
+        <div class="page-container">
+            <div class="home-section page">
+                {% include site-header.html %}
+                <div class="content-container">
+                    <div id="container">
+                        <div id="content-wrap bg-container-canvas">
+                            <div class="wrapper">
+                                <div class="inner">
+                                    <header class="release-header">
+                                    <h1 class="release-title" itemprop="name">{{page.title}}</h1>
+                                    <div class="release-btns"> <a href="{{page.link}}" target="_blank" class="btn-release">Download</a>
+                                    <div class="btn-author">{{page.author}}</div>
+                                    </div>
+                                    <iframe name="iframe1" id="iframe1" class="discord-preview" src="../themes/assets/darkdiscord.html?theme={{page.source}}"></iframe>
+                                    </header>
+                                    <!-- DISQUS (disabled for development) [DEV] -->
+                                    <!-- <div id="disqus_thread">
+                                        <iframe id="dsq-app2569" name="dsq-app2569" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="https://disqus.com/embed/comments/?base=default&amp;f=betterdocs&amp;t_u=https%3A%2F%2Fbetterdocs.net%2Fthemes%2Fdiscordreborn.html&amp;t_d=Discord%20Reborn&amp;t_t=Discord%20Reborn&amp;s_o=default#version=edf5d755cbbd4c1756bca23076b1194c" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 5411px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe>
+                                        <iframe id="dsq-app2572" name="dsq-app2572" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="//disqusads.com/ads-iframe/adsnative/?category=style&amp;display_bidding_enabled=0&amp;lq=0&amp;stories_allowed=1&amp;service=dynamic&amp;position=bottom&amp;display_allowed=1&amp;video_allowed=0&amp;provider=adsnative&amp;thumbnails_allowed=1&amp;experiment=sandbox_ads&amp;variant=sandbox_disabled&amp;display_only=0&amp;sandbox_display=1&amp;links_allowed=1&amp;doublewide_allowed=1&amp;shortname=betterdocs&amp;forum_pk=4768644&amp;forum_shortname=betterdocs&amp;safetylevel=30&amp;t=1508343522&amp;anchorColor=%230000ee&amp;colorScheme=dark&amp;sourceUrl=https%3A%2F%2Fbetterdocs.net%2Fthemes%2Fdiscordreborn.html&amp;typeface=sans-serif&amp;disqus_version=6546198" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 0px !important; display: none !important;"></iframe>
+                                        <iframe id="indicator-north" name="indicator-north" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 1223px !important; border: none !important; overflow: hidden !important; top: 0px !important; min-width: 1223px !important; max-width: 1223px !important; position: fixed !important; z-index: 2147483646 !important; height: 18px !important; min-height: 18px !important; max-height: 18px !important; display: none !important;"></iframe>
+                                        <iframe id="indicator-south" name="indicator-south" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 1223px !important; border: none !important; overflow: hidden !important; bottom: 0px !important; min-width: 1223px !important; max-width: 1223px !important; position: fixed !important; z-index: 2147483646 !important; height: 18px !important; min-height: 18px !important; max-height: 18px !important; display: none !important;"></iframe>
+                                    </div>
+                                    <script type="text/rocketscript" data-rocketoptimized="true">                      
+                                        /**
+                                            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                        /*
+                                        var disqus_config = function () {
+                                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                        };
+                                        */
+                                        (function() { // DON'T EDIT BELOW THIS LINE
+                                            var d = document,
+                                                s = d.createElement('script');
+                                            s.src = '//betterdocs.disqus.com/embed.js';
+                                            s.setAttribute('data-timestamp', +new Date());
+                                            (d.head || d.body).appendChild(s);
+                                        })();
+                                    </script>
+                                    <noscript>Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
