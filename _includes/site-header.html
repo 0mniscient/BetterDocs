@@ -6,11 +6,11 @@
                 <div class="pushy-content">
                     <ul>
                         <li class="pushy-link">
-                            <a href="/}">Home</a>
+                            <a href="{{'/' | relative_url}}">Home</a>
                         </li>
                         {% for e in links %}
                         <li class="pushy-link">
-                            <a href="{{e.url}}">{{e.name}}</a>
+                            <a href="{{e.url | relative_url}}">{{e.name}}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -28,21 +28,21 @@
         <div class="left-tabs">
             {% for e in links %}
             {% if forloop.index <= len %}
-            <a href="{{e.url}}">
+            <a href="{{e.url | relative_url}}">
                 <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
             </a>
             {% endif %}
             {% endfor %}
         </div>
     </div>
-    <a href="/">
-        <img class="animated logo-page b-error fadeInDown" src="/img/betterdocs_white.svg" alt="logo">
+    <a href="{{'/' | relative_url}}">
+        <img class="animated logo-page b-error fadeInDown" src="{{'/img/betterdocs_white.svg' | relative_url}}" alt="logo">
     </a>
     <div class="tab-links fadeInDown">
         <div class="right-tabs">
             {% for e in links %}
             {% if forloop.index > len %}
-            <a href="{{e.url}}">
+            <a href="{{e.url | relative_url}}">
                 <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
             </a>
             {% endif %}
