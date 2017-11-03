@@ -9,8 +9,9 @@
                             <a href="{{'/' | relative_url}}">Home</a>
                         </li>
                         {% for e in links %}
+                        {% assign s = e.url | slice: 0 %}
                         <li class="pushy-link">
-                            <a href="{{e.url | relative_url}}">{{e.name}}</a>
+                            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}}">{{e.name}}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -42,7 +43,8 @@
         <div class="right-tabs">
             {% for e in links %}
             {% if forloop.index > len %}
-            <a href="{{e.url | relative_url}}">
+            {% assign s = e.url | slice: 0 %}
+            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}}">
                 <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
             </a>
             {% endif %}
