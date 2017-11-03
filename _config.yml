@@ -1,1 +1,7 @@
-theme: jekyll-theme-cayman
+name: BetterDocs
+description: Free quality Themes and Plugins for Discord and easy installation instructions for BetterDiscord and more!
+icon: https://imgur.com/GZVRLfz.png
+exclude:
+    - README.md
+    - LICENSE
+    - Gemfile
