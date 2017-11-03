@@ -1,0 +1,52 @@
+{% assign links = site.data.general.header.links %}
+<div class="logo page">
+    <header id="header" class="wrapper">
+        <div id="header-inner" class="inner">
+            <nav class="pushy pushy-left">
+                <div class="pushy-content">
+                    <ul>
+                        <li class="pushy-link">
+                            <a href="/}">Home</a>
+                        </li>
+                        {% for e in links %}
+                        <li class="pushy-link">
+                            <a href="{{e.url}}">{{e.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+            <div class="site-overlay"></div>
+            <div id="container">
+                <button class="menu-btn">☰</button>
+            </div>
+            <div id="import-header"></div>
+        </div>
+    </header>
+    <div class="tab-links fadeInDown">
+        {% assign len = links | size | divided_by: 2 | floor %}
+        <div class="left-tabs">
+            {% for e in links %}
+            {% if forloop.index <= len %}
+            <a href="{{e.url}}">
+                <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <a href="/">
+        <img class="animated logo-page b-error fadeInDown" src="/img/betterdocs_white.svg" alt="logo">
+    </a>
+    <div class="tab-links fadeInDown">
+        <div class="right-tabs">
+            {% for e in links %}
+            {% if forloop.index > len %}
+            <a href="{{e.url}}">
+                <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
