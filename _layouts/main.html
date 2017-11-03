@@ -1,0 +1,28 @@
+---
+layout: main
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include document-head.html %}
+    </head>
+    <body class="body-page" style="visibility: visible;">
+        <canvas id="bg-canvas" width="1438" height="949"></canvas>
+        <div class="page-container">
+            <div class="home-section page">
+                {% include site-header.html %}
+                <div class="content-container">
+                    <div id="container">
+                        <div id="content-wrap bg-container-canvas">
+                            <div class="wrapper">
+                                <div class="inner">
+                                    {{content}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
