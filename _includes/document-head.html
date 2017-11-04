@@ -3,6 +3,9 @@
 <title>{% if page.title %}{{page.title}} - {% endif %}{{site.name}}</title>
 <meta name="description" content="{% if page.description %}{{page.description}}{% else %}{{site.description}}{% endif %}"/>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+{% if page.keywords %}
+<meta name="keywords" content="{{page.keywords | join: ' ' }}">
+{% endif %}
 <link rel="shortcut icon" href="{{site.icon}}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://betterdocs.net/">
