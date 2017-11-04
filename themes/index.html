@@ -1,5 +1,20 @@
 ---
 layout: main
+title: Themes
+keywords: 
+    - Themes
+    - Reborn
+    - Dark Matter
+    - Transparent
+    - Light
+    - Quiet
+    - Color
+    - Clear Vision
+    - Material Design
+    - Flat
+    - Anime
+    - Background
+    - Animations
 ---
 {% assign themes = "|" | split: "|" %}
 {% for file in site.pages %}
@@ -15,7 +30,7 @@ layout: main
 <ul id="plugin-list">
     <li class="plugin on">
         <div class="plugin-screenshot">
-            <img src="documentation/images/shop-display.png" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
+            <img src="{{ '/img/shop-display.png' | relative_url}}" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
             <a href="https://betterdocs.net/documentation/shop/themes" class="plugin-preview-link">
                 <i class="fa fa-shopping-cart"></i>
             </a>
@@ -33,15 +48,22 @@ layout: main
     {% assign url = e.url | remove: ".html" %}
     <li class="plugin on">
         <div class="plugin-screenshot">
-            <img src="{% if e.img %}{{e.img}}{% else %}/themes/images/{{e.title | downcase | replace: ' ', '_' }}.jpg{% endif %}" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
-            <a href="{{url}}" class="plugin-preview-link">
+            {% if e.img %}
+                {% assign img = e.img %}
+            {% else %}
+                {% capture img %}/themes/images/{{e.title | downcase | remove: '-' | normalize_whitespace | replace: ' ', '_' }}.jpg{% endcapture %}
+            {% endif %}
+            {% assign s = img | slice: 0 %}
+            <img src="{% if s == '/' %}{{img | relative_url}}{% else %}{{img}}{% endif %}" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
+            <a href="{{url | relative_url}}" class="plugin-preview-link">
                 <i class="fa fa-eye"></i>
             </a>
         </div>
-        <a href="{{url}}" class="plugin-name">{{e.title}}</a>
+        <a href="{{url | relative_url}}" class="plugin-name">{{e.title}}</a>
         <p class="plugin-desc">{{e.description}}</p>
         <div class="plugin-tag-list">
-            {% for t in e.keywords %}
+                <a href="#{{e.author | replace: ' ', '-' }}" class="plugin-tag">{{e.author}}</a>
+            {% for t in e.tags %}
             <a href="#{{t | replace: ' ', '-' }}" class="plugin-tag">{{t}}</a>
             {% endfor %}
         </div>
