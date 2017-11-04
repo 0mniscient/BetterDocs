@@ -1,34 +1,16 @@
 ---
 layout: main
 ---
-{% assign total = "|" | split: "|" %}
-{% assign betterdiscord = "|" | split: "|" %}
-{% assign beautifuldiscord = "|" | split: "|" %}
+{% assign themes = "|" | split: "|" %}
 {% for file in site.pages %}
     {% if file.layout == "theme" and file.hidden != true %}
-        {% assign total = total | push: file %}
-        {% if file.keywords contains "Better Discord" %}
-            {% assign betterdiscord = betterdiscord | push: file %}
-        {% endif %}
-        {% if file.keywords contains "Beautiful Discord" %}
-            {% assign beautifuldiscord = beautifuldiscord | push: file %}
-        {% endif %}
+        {% assign themes = themes | push: file %}
     {% endif %}
 {% endfor %}
 <header id="plugin-list-header">
     <h1 id="plugin-list-title">Themes</h1>
-    <div id="plugin-list-count" class="total-items">Total Themes: {{total | size | plus: 1}}</div>
+    <div id="plugin-list-count" class="total-items">Total Themes: {{themes | size | plus: 1}}</div>
     <input type="search" id="plugin-search-input" placeholder="Search themes...">
-</header>
-<header id="plugin-list-header">
-    <h1 id="plugin-list-title" class="bd-header">
-        <div id="betterdiscord">
-            <span class="bd-title">Better</span>Discord
-            <a class="article-anchor page" href="#betterdiscord" aria-hidden="true"></a>
-        </div>
-    </h1>
-    <div id="plugin-list-count">{{betterdiscord | size | plus: 1}} Themes</div>
-    <hr>
 </header>
 <ul id="plugin-list">
     <li class="plugin on">
@@ -47,7 +29,7 @@ layout: main
             <a href="#Money" class="plugin-tag tag-invis">Money</a>
         </div>
     </li>
-    {% for e in betterdiscord %}
+    {% for e in themes %}
     {% assign url = e.url | remove: ".html" %}
     <li class="plugin on">
         <div class="plugin-screenshot">
@@ -60,41 +42,9 @@ layout: main
         <p class="plugin-desc">{{e.description}}</p>
         <div class="plugin-tag-list">
             {% for t in e.keywords %}
-            <a href="#{{t}}" class="plugin-tag">{{t}}</a>
+            <a href="#{{t | replace: ' ', '-' }}" class="plugin-tag">{{t}}</a>
             {% endfor %}
         </div>
     </li>
     {% endfor %}
 </ul>
-<header id="plugin-list-header">
-    <h1 id="plugin-list-title" class="bd-header beauty-header">
-        <div id="beautifuldiscord">
-            <span class="beauty-title">Beautiful</span>Discord
-            <a class="article-anchor page" href="#beautifuldiscord" aria-hidden="true"></a>
-        </div>
-    </h1>
-    <div id="plugin-list-count">{{beautifuldiscord | size}} Themes</div>
-    <hr>
-</header>
-<div id="plugin-list-2">
-    <ul id="plugin-list">
-        <!-- <li class="plugin on">
-            <div class="plugin-screenshot">
-                <img src="https://i.imgur.com/F3iDLTu.png" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
-                <a href="themes/discord_theme.html" class="plugin-preview-link">
-                    <i class="fa fa-eye"></i>
-                </a>
-            </div>
-            <a href="themes/discord_theme.html" class="plugin-name">Discord_Theme</a>
-            <p class="plugin-desc">A custom CSS made to change your discord style.</p>
-            <div class="plugin-tag-list">
-                <a href="#AlexFlipnote" class="plugin-tag">AlexFlipnote</a>
-                <a href="#CyberRonin" class="plugin-tag">CyberRonin</a>
-                <a href="#Material" class="plugin-tag">Material</a>
-                <a href="#Modern" class="plugin-tag">Modern</a>
-                <a href="#Dark" class="plugin-tag tag-invis">Dark</a>
-                <a href="#BeautifulDiscord" class="plugin-tag tag-invis">BeautifulDiscord</a>
-            </div>
-        </li> -->
-    </ul>
-</div>
