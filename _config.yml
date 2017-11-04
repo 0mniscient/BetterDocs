@@ -1,7 +1,23 @@
 name: BetterDocs
 description: Free quality Themes and Plugins for Discord and easy installation instructions for BetterDiscord and more!
 icon: https://imgur.com/GZVRLfz.png
+
 exclude:
     - README.md
     - LICENSE
     - Gemfile
+
+header:
+    links:
+        - name: Documentation
+          url: /documentation
+        - name: Themes
+          url: /themes
+        - name: Plugins
+          url: /plugins
+        - name: Store
+          url: /store
+        - name: Submit
+          url: /submit
+        - name: Donate
+          url: https://paypal.me/Chaotiic
