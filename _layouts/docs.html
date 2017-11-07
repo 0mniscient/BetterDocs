@@ -73,17 +73,8 @@ keywords:
                     <div id="content-inner">
                         <article class="article-container" itemscope itemtype="http://schema.org/Article">
                             <div class="article-inner">
-                                <div class="article">
-                                    <header class="article-header">
-                                        <h1 class="article-title" itemprop="name">{{page.title}}</h1>
-                                        {% if page.name == "index.html" %}
-                                        <h2 class="unofficial">Unofficial</h2>
-                                        {% endif %}
-                                        <a href="https://github.com/0mniscient/BetterDocs/edit/master/{{page.path}}" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
-                                    </header>
-                                    {{content}}
-                                </div>
-                             </div>
+                                {{content}}
+                            </div>
                         </article>
                         {% include docs-sidebar.html %}
                     </div>
