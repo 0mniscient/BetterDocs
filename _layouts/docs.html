@@ -1,0 +1,144 @@
+---
+layout: docs
+css:
+    - docs
+keywords: 
+    - Omni
+    - Omniscient
+    - Jiiks
+    - Hammock
+    - Maple
+    - Bluescream
+    - BetterDiscord
+    - Discord
+    - Themes
+    - Plugins
+    - Theme
+    - Plugin
+    - Installation
+    - How-To
+---
+{% assign links = "|" | split: "|" %}
+{% assign names = "|" | split: "|" %}
+{% for e in site.docs.links %}
+{% assign url = e.url %}
+{% assign s = url | slice: 0 %}
+{% if s == '/' %}
+    {% assign url = e.url | relative_url %}
+{% endif %}
+{% assign links = links | push: url %}
+{% assign names = names | push: e.name %}
+{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include document-head.html %}
+        <style>
+            .unofficial {
+                color: #59ace0;
+                font-weight: 700;
+                font-siZE: 1.2em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header id="header" class="wrapper">
+                <div id="header-inner" class="inner">
+            <h1 id="logo-wrap"> 
+            <a href="{{site.baseurl}}/" id="logo">BetterDiscord</a> 
+        </h1>
+            <div id="import-header">
+                <nav id="main-nav">
+                    {% for e in links %}
+                    <a href="{{e}}" class="main-nav-link">{{names[forloop.index0]}}</a>
+                    {% endfor %}
+                </nav>
+            </div>
+            <div id="lang-select-wrap">
+                <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+                <select id="lang-select" data-canonical="docs/index.html">
+                    <option value="en" selected="">English</option>
+                </select>
+            </div>
+            <a id="mobile-nav-toggle">
+                <span class="mobile-nav-toggle-bar"></span>
+                <span class="mobile-nav-toggle-bar"></span>
+                <span class="mobile-nav-toggle-bar"></span>
+            </a>
+        </div>
+            </header>
+            <div id="content-wrap">
+                <div id="content" class="wrapper">
+                    <div id="content-inner">
+                        <article class="article-container" itemscope itemtype="http://schema.org/Article">
+                            <div class="article-inner">
+                                <div class="article">
+                                    <header class="article-header">
+                                        <h1 class="article-title" itemprop="name">{{page.title}}</h1>
+                                        {% if page.name == "index.html" %}
+                                        <h2 class="unofficial">Unofficial</h2>
+                                        {% endif %}
+                                        <a href="https://github.com/0mniscient/BetterDocs/edit/master/{{page.path}}" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+                                    </header>
+                                    {{content}}
+                                </div>
+                             </div>
+                        </article>
+                        {% include docs-sidebar.html %}
+                    </div>
+                </div>
+            </div>
+        <footer id="footer" class="wrapper">
+            <div class="inner">
+                <div id="footer-copyright">
+                    &copy; 2016 <a href="https://www.snapchat.com/add/Omniscien.t" target="_blank">Chris Flores</a>
+                </div>
+                <div id="footer-links">
+                    <a href="https://twitter.com/Omniscien_t" class="footer-link" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://github.com/0mniscient" class="footer-link" target="_blank">
+                        <i class="fa fa-github-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="mobile-nav-dimmer"></div>
+    <nav id="mobile-nav">
+        <div id="mobile-nav-inner">
+            <ul id="mobile-nav-list">
+                <div id="import-mobile-nav"></div>
+            </ul>
+            <strong class="mobile-nav-title">Getting Started</strong>
+            <a href="../documentation/index.html" class="mobile-nav-link current">Overview</a>
+            <strong class="mobile-nav-title">Installation</strong>
+            <a href="https://betterdocs.net/documentation/install_win.html" class="mobile-nav-link">Windows</a>
+            <a href="https://betterdocs.net/documentation/install_mac.html" class="mobile-nav-link">Mac</a>
+            <a href="https://betterdocs.net/documentation/install_linux.html" class="mobile-nav-link">Linux</a>
+            <strong class="mobile-nav-title">How to use</strong>
+            <a href="https://betterdocs.net/documentation/plugin_api.html" class="mobile-nav-link">Plugin API</a>
+            <a href="https://betterdocs.net/documentation/emotes.html" class="mobile-nav-link">Emotes</a>
+            <strong class="mobile-nav-title">Troubleshooting</strong>
+            <a href="https://betterdocs.net/documentation/betterdiscord_troubleshoot.html" class="mobile-nav-link">BetterDiscord</a>
+            <a href="https://betterdocs.net/documentation/theme_troubleshoot.html" class="mobile-nav-link">Themes</a>
+            <a href="https://betterdocs.net/documentation/plugin_troubleshoot.html" class="mobile-nav-link">Plugins</a>
+            <strong class="mobile-nav-title">Guides</strong>
+            <a href="https://betterdocs.net/documentation/install_theme.html" class="mobile-nav-link">Installing Themes</a>
+            <a href="https://betterdocs.net/documentation/install_plugin.html" class="mobile-nav-link">Installing Plugins</a>
+            <a href="https://betterdocs.net/documentation/making_theme.html" class="mobile-nav-link">Making Theme</a>
+            <a href="https://betterdocs.net/documentation/making_plugin.html" class="mobile-nav-link">Making Plugin</a>
+            <strong class="mobile-nav-title">Downloads</strong>
+            <a href="https://betterdocs.net/themes.html" class="mobile-nav-link">Themes</a>
+            <a href="https://betterdocs.net/plugins.html" class="mobile-nav-link">Plugins</a>
+        </div>
+        <div id="mobile-lang-select-wrap">
+            <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+            <select id="mobile-lang-select" data-canonical="docs/index.html">
+                <option value="en" selected>English</option>
+            </select>
+        </div>
+    </nav>
+    </body>
+</html>
