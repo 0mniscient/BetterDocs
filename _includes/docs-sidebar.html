@@ -1,0 +1,16 @@
+<aside id="sidebar" role="navigation">
+    <div class="inner">
+        {% for c in site.docs.sidebar %}
+            <strong class="sidebar-title">{{c[0]}}</strong>
+            {% for e in c[1] %}
+                {% assign url = e.url %}
+                {% assign s = url | slice: 0 %}
+                {% if s == '/' %}
+                    {% assign url = e.url | relative_url %}
+                {% endif %}
+                {% assign p = page.path | remove: ".html" %}
+                <a href="{{url}}" class="sidebar-link{% if p == url %} current{% endif %}">{{e.name}}</a>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</aside>
