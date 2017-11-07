@@ -1,4 +1,14 @@
-{% assign links = site.header.links %}
+{% assign links = "|" | split: "|" %}
+{% assign names = "|" | split: "|" %}
+{% for e in site.header.links %}
+{% assign url = e.url %}
+{% assign s = url | slice: 0 %}
+{% if s == '/' %}
+    {% assign url = e.url | relative_url %}
+{% endif %}
+{% assign links = links | push: url %}
+{% assign names = names | push: e.name %}
+{% endfor %}
 <div class="logo page">
     <header id="header" class="wrapper">
         <div id="header-inner" class="inner">
@@ -6,12 +16,11 @@
                 <div class="pushy-content">
                     <ul>
                         <li class="pushy-link">
-                            <a href="{{'/' | relative_url}}">Home</a>
+                            <a href="{{site.baseurl}}/">Home</a>
                         </li>
                         {% for e in links %}
-                        {% assign s = e.url | slice: 0 %}
                         <li class="pushy-link">
-                            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}">{{e.name}}</a>
+                            <a href="{{e}}">{{names[forloop.index0]}}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -29,23 +38,22 @@
         <div class="left-tabs">
             {% for e in links %}
             {% if forloop.index <= len %}
-            <a href="{{e.url | relative_url}}">
-                <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
+            <a href="{{e}}">
+                <div class="tabb tab-{{forloop.index}}">{{names[forloop.index0]}}</div>
             </a>
             {% endif %}
             {% endfor %}
         </div>
     </div>
-    <a href="{{'/' | relative_url}}">
-        <img class="animated logo-page b-error fadeInDown" src="{{'/img/betterdocs_white.svg' | relative_url}}" alt="logo">
+    <a href="{{site.baseurl}}/">
+        <img class="animated logo-page b-error fadeInDown" src="{{site.baseurl}}/img/betterdocs_white.svg" alt="logo">
     </a>
     <div class="tab-links fadeInDown">
         <div class="right-tabs">
             {% for e in links %}
             {% if forloop.index > len %}
-            {% assign s = e.url | slice: 0 %}
-            <a href="{% if s == '/' %}{{e.url | relative_url}}{% else %}{{e.url}}{% endif %}">
-                <div class="tabb tab-{{forloop.index}}">{{e.name}}</div>
+            <a href="{{e}}">
+                <div class="tabb tab-{{forloop.index}}">{{names[forloop.index0]}}</div>
             </a>
             {% endif %}
             {% endfor %}
