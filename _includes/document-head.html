@@ -5,6 +5,8 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 {% if page.keywords %}
 <meta name="keywords" content="{{page.keywords | join: ' ' }}">
+{% elsif layout.keywords %}
+<meta name="keywords" content="{{layout.keywords | join: ' ' }}">
 {% endif %}
 <link rel="shortcut icon" href="{{site.icon}}">
 <meta property="og:type" content="website">
@@ -17,15 +19,16 @@
 <!-- STYLES -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" type="text/css">
-<link rel="stylesheet" href="https://betterdocs.net/documentation/stylesheets/style.css">
 <link rel="stylesheet "href="https://fonts.googleapis.com/css?family=Lato:300,400,700" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{'/css/compiledstyle.css' | relative_url}}" type="text/css">
-<link rel="stylesheet" href="{{'/css/pushy.css' | relative_url}}" type="text/css">
-<!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-<![endif]-->
+{% for e in layout.css %}
+{% capture url %}/css/{{e}}.css{% endcapture %}
+<link rel="stylesheet" href="{{url | relative_url}}" type="text/css">
+{% endfor %}
+{% for e in page.css %}
+{% capture url %}/css/{{e}}.css{% endcapture %}
+<link rel="stylesheet" href="{{url | relative_url}}" type="text/css">
+{% endfor %}
 <style>
     #content-wrap {
         background: #19191b;
@@ -33,12 +36,24 @@
         border-bottom: 1px solid transparent;
         margin: -1px 0;
     }
-
     #plugin-list-title {
         color: #fff;
     }
-
     #container {
         margin-top: 85px;
     }
 </style>
+
+<!-- JAVASCRIPT -->
+{% for e in layout.js %}
+{% capture url %}/js/{{e}}.js{% endcapture %}
+<script src="{{url | relative_url}}" type="text/javascript"></script>
+{% endfor %}
+{% for e in page.js %}
+{% capture url %}/js/{{e}}.js{% endcapture %}
+<script src="{{url | relative_url}}" type="text/javascript"></script>
+{% endfor %}
+<!--[if lt IE 9]>
+    <script src="{{'/js/html5shiv.js' | relative_url}}"></script>
+    <script src="{{'/js/respond.min.js' | relative_url}}"></script>
+<![endif]-->
