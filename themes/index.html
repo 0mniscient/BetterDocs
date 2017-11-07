@@ -30,7 +30,7 @@ keywords:
 <ul id="plugin-list">
     <li class="plugin on">
         <div class="plugin-screenshot">
-            <img src="{{ '/img/shop-display.png' | relative_url}}" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
+            <img src="{{site.baseurl}}/img/shop-display.png" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
             <a href="https://betterdocs.net/documentation/shop/themes" class="plugin-preview-link">
                 <i class="fa fa-shopping-cart"></i>
             </a>
@@ -54,7 +54,10 @@ keywords:
                 {% capture img %}/themes/images/{{e.title | downcase | remove: '-' | normalize_whitespace | replace: ' ', '_' }}.jpg{% endcapture %}
             {% endif %}
             {% assign s = img | slice: 0 %}
-            <img src="{% if s == '/' %}{{img | relative_url}}{% else %}{{img}}{% endif %}" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
+            {% if s == '/' %}
+                {% assign img = img | relative_url %}
+            {% endif %}
+            <img src="{{img}}" class="lazy plugin-screenshot-img b-loaded" width="auto" height="auto">
             <a href="{{url | relative_url}}" class="plugin-preview-link">
                 <i class="fa fa-eye"></i>
             </a>
