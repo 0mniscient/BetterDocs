@@ -10,7 +10,7 @@ exclude:
 header:
     links:
         - name: Documentation
-          url: /documentation
+          url: /documentation/
         - name: Themes
           url: /themes
         - name: Plugins
@@ -21,3 +21,56 @@ header:
           url: /submit
         - name: Donate
           url: https://paypal.me/Chaotiic
+docs:
+    links:
+        - name: Home
+          url : /
+        - name: Docs
+          url : /documentation/
+        - name: API
+          url : /documentation/plugin-api
+        - name: Themes
+          url : /themes
+        - name: Plugins
+          url : /plugins
+        - name: Shops
+          url : /documentation/shop/themes
+        - name: <i class="fa fa-github-alt"></i>
+          url : https://github.com/0mniscient
+    sidebar:
+        Getting Started:
+            - name: Overview
+              url: /documentation/
+        Installation:
+            - name: Windows
+              url: /documentation/install-win
+            - name: Mac
+              url: /documentation/install-mac
+            - name: Linux
+              url: /documentation/install-linux
+        How to use:
+            - name: Plugin API
+              url: /documentation/plugin-api
+            - name: Emotes
+              url: /documentation/emotes
+        Troubleshooting:
+            - name: BetterDiscord
+              url: /documentation/betterdiscord-troubleshoot
+            - name: Themes
+              url: /documentation/theme-troubleshoot
+            - name: Plugins
+              url: /documentation/plugin-troubleshoot
+        Guides:
+            - name: Installing Theme
+              url: /documentation/install-theme
+            - name: Installing Plugin
+              url: /documentation/install-plugin
+            - name: Making Theme
+              url: /documentation/making-theme
+            - name: Making Plugin
+              url: /documentation/making-plugin
+        Downloads:
+            - name: Themes
+              url: /themes
+            - name: Plugins
+              url: /plugins
